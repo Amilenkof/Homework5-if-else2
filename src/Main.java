@@ -36,11 +36,11 @@ public class Main {
 Важно: вложенность больше двух этажей не допускается (условный оператор внутри условного оператора).*/
         System.out.println("Задача 2");
         int clientOs=0;
-        int clientDeviceYear=2005;
+        int clientDeviceYear=2025;
 
-        if (clientOs==1 && clientDeviceYear>2015) {
+        if (clientOs==0 && clientDeviceYear>2015) {
             System.out.println("Установите версию приложения для iOS по ссылке");}
-        else if (clientOs==1 && clientDeviceYear<2015) {
+        else if (clientOs==0 && clientDeviceYear<2015) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");}
 
         else if (clientDeviceYear>2015)  {
@@ -85,7 +85,7 @@ public static void task4() {
 Напишите программу, которая выдает сообщение в консоль: "Потребуется дней: " + срок доставки.
 Объявите целочисленную переменную deliveryDistance = 95, которая содержит дистанцию до клиента.*/
 
-    int deliveryDistance=135;
+    int deliveryDistance=95;
     int deliveryTime=1;
 
     if ( deliveryDistance<=20) {System.out.println("Для доставки Вашей карты потребуется "+deliveryTime+" (день/дней/дня)");
