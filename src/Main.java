@@ -1,3 +1,5 @@
+import java.time.Year;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -5,7 +7,8 @@ public class Main {
         task2();
         task3();
         task4();
-        task5();}
+        task5();
+    }
 
     public static void task1() {
         System.out.println("Задача 1.");
@@ -16,13 +19,14 @@ public class Main {
 Для iOS — «Установите версию приложения для iOS по ссылке».
 Для Android — «Установите версию приложения для Android по ссылке».
 Объявите переменную clientOS, которая равна 0 или 1 (0 — iOS, 1 — Android).*/
-        int clientOs=1;
+        int clientOs = 1;
 
-        if (clientOs==1) {
+        if (clientOs == 1) {
             System.out.println("Установите версию приложения для iOS по ссылке");
+        } else if (clientOs == 0) {
+            System.out.println("Установите версию приложения для Android по ссылке");
         }
-        else if (clientOs==0)  {
-            System.out.println("Установите версию приложения для Android по ссылке");}}
+    }
 
     public static void task2() {
         /*Задача 2
@@ -35,10 +39,24 @@ public class Main {
 Для года создания телефона используйте переменную clientDeviceYear, в которой необходимо указать 2015 год.
 Важно: вложенность больше двух этажей не допускается (условный оператор внутри условного оператора).*/
         System.out.println("Задача 2");
-        int clientOs=0;
-        int clientDeviceYear=2025;
+        int clientOs = 1;
+        int clientDeviceYear = 2005;
+        if (clientDeviceYear < 2015) {
+            if (clientOs == 0) {
+                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+            } else {
+                System.out.println("Установите облегченную версию  приложения для Android по ссылке");
+            }
+        } else {
+            if (clientOs == 1) {
+                System.out.println("Установите версию приложения для Android по ссылке");
+            } else {
+                System.out.println("Установите версию приложения для iOS по ссылке");
+            }
+        }
 
-        if (clientOs==0 && clientDeviceYear>2015) {
+
+       /* if (clientOs==0 && clientDeviceYear>2015) {
             System.out.println("Установите версию приложения для iOS по ссылке");}
         else if (clientOs==0 && clientDeviceYear<2015) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");}
@@ -46,10 +64,11 @@ public class Main {
         else if (clientDeviceYear>2015)  {
             System.out.println("Установите версию приложения для Android по ссылке");}
         else    {
-            System.out.println("Установите облегченную версию  приложения для Android по ссылке");}
+            System.out.println("Установите облегченную версию  приложения для Android по ссылке");}*/
 
     }
-    public static void task3 () {
+
+    public static void task3() {
         System.out.println("Задача 3.");
     /*Задача 3
 Напишите программу, которая определяет, является ли год високосным или нет.
@@ -58,22 +77,31 @@ public class Main {
 или «... год не является високосным».
 Небольшая справка: високосным является каждый четвертый год, но не является каждый сотый. Также високосным является каждый
  четырехсотый год.*/
-        int year = 2021;
-        if (year % 4 == 0) {
+        int year = 504;
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            System.out.println(year + " Год является високосным.");
 
-            if (year % 400 == 0) {
-                System.out.println(year + " год является високосным");
-            } else if (year % 100 == 0) {
-                System.out.println(year + " год не является високосным");
-            }
-            else {
-                System.out.println(year+" год является високосным");}
         } else {
-            System.out.println(year + " год не является високосным");
+            System.out.println(year + " год не является високосным.");
         }
     }
-public static void task4() {
-    System.out.println("Задача 4.");
+
+    /*
+    if (year % 4 == 0) {
+
+        if (year % 400 == 0) {
+            System.out.println(year + " год является високосным");
+        } else if (year % 100 == 0) {
+            System.out.println(year + " год не является високосным");
+        }
+        else {
+            System.out.println(year+" год является високосным");}
+    } else {
+        System.out.println(year + " год не является високосным");
+    }
+}*/
+    public static void task4() {
+        System.out.println("Задача 4.");
     /*Задача 4
 В банке для клиентов организовывается доставка карт на дом. Чтобы известить клиента о том, когда будет доставлена его карта, нужно знать расстояние от офиса до адреса доставки.
 Правила доставки такие:
@@ -85,56 +113,59 @@ public static void task4() {
 Напишите программу, которая выдает сообщение в консоль: "Потребуется дней: " + срок доставки.
 Объявите целочисленную переменную deliveryDistance = 95, которая содержит дистанцию до клиента.*/
 
-    int deliveryDistance=95;
-    int deliveryTime=1;
+        int deliveryDistance = 95;
+        int deliveryTime = 1;
 
-    if ( deliveryDistance<=20) {System.out.println("Для доставки Вашей карты потребуется "+deliveryTime+" (день/дней/дня)");
+        if (deliveryDistance <= 20) {
+            System.out.println("Для доставки Вашей карты потребуется " + deliveryTime + " (день/дней/дня)");
         }//day
-    else if (deliveryDistance<=60 && deliveryDistance>20) {
-        deliveryTime+=1;
-        System.out.println("Для доставки Вашей карты потребуется "+deliveryTime+" (день/дней/дня)");}
-    else if (deliveryDistance>60 && deliveryDistance<=100) {
-        deliveryTime+=2;
-        System.out.println("Для доставки Вашей карты потребуется "+deliveryTime+" (день/дней/дня)");}
-    else  {
-        System.out.println("Извините, мы не может доставить карту на дом.");
+        else if (deliveryDistance <= 60) {
+            deliveryTime += 1;
+            System.out.println("Для доставки Вашей карты потребуется " + deliveryTime + " (день/дней/дня)");
+        } else if (deliveryDistance <= 100) {
+            deliveryTime += 2;
+            System.out.println("Для доставки Вашей карты потребуется " + deliveryTime + " (день/дней/дня)");
+        } else {
+            System.out.println("Извините, мы не может доставить карту на дом.");
 
         }
 
     }
-public static void task5 () {
-    System.out.println("Задача 5.");
+
+    public static void task5() {
+        System.out.println("Задача 5.");
 /*Задача 5
 Напишите программу, которая определяет по номеру месяца в году, к какому сезону этот месяц принадлежит. Например, 1-й месяц (он же январь) принадлежит к сезону зима.
 Для написания программы используйте оператор switch. Для обозначения номера месяца используйте переменную monthNumber = 12.
 Пропишите условие, при котором программа не будет выполняться (номер месяца больше 13).*/
 
-    int monthNumber = 66;
-    if (monthNumber < 12) {
-        switch (monthNumber) {
-            case (12):
-            case (1):
-            case (2):
-                System.out.println("Сейчас зима.");
-                break;
-            case (3):
-            case (4):
-            case (5):
-                System.out.println("Сейчас весна.");
-                break;
-            case (6):
-            case (7):
-            case (8):
-                System.out.println("Сейчас лето.");
-                break;
-            default:
-                System.out.println("Сейчас осень");
+        int monthNumber = 66;
+        if (monthNumber < 12) {
+            switch (monthNumber) {
+                case (12):
+                case (1):
+                case (2):
+                    System.out.println("Сейчас зима.");
+                    break;
+                case (3):
+                case (4):
+                case (5):
+                    System.out.println("Сейчас весна.");
+                    break;
+                case (6):
+                case (7):
+                case (8):
+                    System.out.println("Сейчас лето.");
+                    break;
+                default:
+                    System.out.println("Сейчас осень");
+            }
+        } else {
+            System.out.println("Вы ввели не существующий месяц.");
         }
-    } else {
-        System.out.println("Вы ввели не существующий месяц.");
-    }
 
-}}
+    }
+}
 
 
 
